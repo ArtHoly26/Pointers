@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <stdarg.h>
 
 using namespace std;
@@ -19,6 +19,6 @@ int Sum(int n...)
 int main()
 {
 	setlocale(LC_ALL, "Rus");
-	cout <<"Ñóììà ïåðåäàííûõ àðãóìåíòîâ ðàâíà: "<< Sum(200, 300, 400, 0) << endl;
+	cout <<"Ð¡ÑƒÐ¼Ð¼Ð° Ð¿ÐµÑ€ÐµÐ´Ð°Ð½Ð½Ñ‹Ñ… Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ñ€Ð°Ð²Ð½Ð°: "<< Sum(200, 300, 400, 0) << endl;
 	
 }
