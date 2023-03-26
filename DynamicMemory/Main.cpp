@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 using namespace std;
 
@@ -28,7 +28,7 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
 	int size;
-	cout << "Ââåäèòå ðàçìåð ìàññèâà:" << endl;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << endl;
 	cin >> size;
 	int* arr = new int[size];
 	FillRand(arr,size);
