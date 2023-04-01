@@ -65,14 +65,12 @@ void FillRand(char* arr, int const size)
 	for (int i = 0; i < size; i++) arr[i] = rand() % 100;
 }
 
-template<typename T>
-void Print(T* const arr, int const size)
+template<typename T> void Print(T* const arr, int const size)
 {
 	for (int i = 0; i < size; i++) cout << arr[i] << "\t";
 }
 
-template<typename T>
-void Push_back(T*& arr, int& size, int  value)
+template<typename T> void Push_back(T*& arr, int& size, int  value)
 {
 	T* NewArray = new T[size + 1];
 	for (int i = 0; i < size; i++) NewArray[i] = arr[i];
@@ -82,8 +80,7 @@ void Push_back(T*& arr, int& size, int  value)
 	size++;
 }
 
-template<typename T>
-void Push_front(T*& arr, int& size, int value)
+template<typename T> void Push_front(T*& arr, int& size, int value)
 {
 	T* NewArray = new T[size + 1];
 	for (int i = 0; i < size; i++) NewArray[i + 1] = arr[i];
@@ -93,8 +90,7 @@ void Push_front(T*& arr, int& size, int value)
 	size++;
 }
 
-template<typename T>
-void Pop_buck(T*& arr, int& size)
+template<typename T> void Pop_buck(T*& arr, int& size)
 {
 	T* NewArray = new T[--size];
 	for (int i = 0; i < size; i++) NewArray[i] = arr[i];
@@ -102,8 +98,7 @@ void Pop_buck(T*& arr, int& size)
 	arr = NewArray;
 }
 
-template<typename T>
-void Pop_front(T*& arr, int& size)
+template<typename T> void Pop_front(T*& arr, int& size)
 {
 	T* NewArray = new T[size];
 	for (int i = 0; i < size; i++) NewArray[i] = arr[i + 1];
@@ -112,8 +107,7 @@ void Pop_front(T*& arr, int& size)
 	size--;
 }
 
-template<typename T>
-void Insert(T*& arr, int& size, int value,int index)
+template<typename T> void Insert(T*& arr, int& size, int value,int index)
 {
 	T* NewArray = new T[size + 1];
 	for (int i = 0; i < size; i++) 
@@ -131,8 +125,7 @@ void Insert(T*& arr, int& size, int value,int index)
 	size++;
 }
 
-template<typename T>
-void Erase(T*& arr, int& size, int index)
+template<typename T> void Erase(T*& arr, int& size, int index)
 {
 	T* NewArray = new T[size];
 	for (int i = 0; i < size; i++)
