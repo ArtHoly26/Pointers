@@ -3,14 +3,17 @@
 
 using namespace std;
 
-void FillRand(int* const arr, int const size);
-void Print(int* const arr, int const size);
-void Push_back(int*& arr, int& size, int  value);
-void Push_front(int*& arr, int& size, int value);
-void Pop_buck(int*& arr, int& size);
-void Pop_front(int*& arr, int& size);
-void Insert(int*& arr, int& size, int value,int index);
-void Erase(int*& arr, int& size, int index);
+void FillRand(int * const arr, int const size);
+void FillRand(double* const arr, int const size);
+void FillRand(char* const arr, int const size);
+
+template<typename T> void Print(T* const arr, int const size);
+template<typename T> void Push_back(T*& arr, int& size, int  value);
+template<typename T> void Push_front(T*& arr, int& size, int value);
+template<typename T> void Pop_buck(T*& arr, int& size);
+template<typename T> void Pop_front(T*& arr, int& size);
+template<typename T> void Insert(T*& arr, int& size, int value,int index);
+template<typename T> void Erase(T*& arr, int& size, int index);
 
 int main()
 {
@@ -49,50 +52,70 @@ int main()
 	delete[] arr;
 }
 
-void FillRand(int* const arr, int const size)
+void FillRand(int* arr, int const size)
 {
 	for (int i = 0; i < size; i++) arr[i] = rand() % 100;
 }
-void Print(int* const arr, int const size)
+void FillRand(double* arr, int const size)
+{
+	for (int i = 0; i < size; i++) arr[i] = rand() % 100;
+}
+void FillRand(char* arr, int const size)
+{
+	for (int i = 0; i < size; i++) arr[i] = rand() % 100;
+}
+
+template<typename T>
+void Print(T* const arr, int const size)
 {
 	for (int i = 0; i < size; i++) cout << arr[i] << "\t";
 }
-void Push_back(int*& arr, int& size, int  value)
+
+template<typename T>
+void Push_back(T*& arr, int& size, int  value)
 {
-	int* NewArray = new int[size + 1];
+	T* NewArray = new T[size + 1];
 	for (int i = 0; i < size; i++) NewArray[i] = arr[i];
 	delete[] arr;
 	arr = NewArray;
 	NewArray[size] = value;
 	size++;
 }
-void Push_front(int*& arr, int& size, int value)
+
+template<typename T>
+void Push_front(T*& arr, int& size, int value)
 {
-	int* NewArray = new int[size + 1];
+	T* NewArray = new T[size + 1];
 	for (int i = 0; i < size; i++) NewArray[i + 1] = arr[i];
 	delete[] arr;
 	arr = NewArray;
 	NewArray[0] = value;
 	size++;
 }
-void Pop_buck(int*& arr, int& size)
+
+template<typename T>
+void Pop_buck(T*& arr, int& size)
 {
-	int* NewArray = new int[--size];
+	T* NewArray = new T[--size];
 	for (int i = 0; i < size; i++) NewArray[i] = arr[i];
 	delete[] arr;
 	arr = NewArray;
 }
-void Pop_front(int*& arr, int& size)
+
+template<typename T>
+void Pop_front(T*& arr, int& size)
 {
-	int* NewArray = new int[size];
+	T* NewArray = new T[size];
 	for (int i = 0; i < size; i++) NewArray[i] = arr[i + 1];
 	delete[] arr;
 	arr = NewArray;
 	size--;
 }
-void Insert(int*& arr, int& size, int value,int index)
+
+template<typename T>
+void Insert(T*& arr, int& size, int value,int index)
 {
-	int* NewArray = new int[size + 1];
+	T* NewArray = new T[size + 1];
 	for (int i = 0; i < size; i++) 
 	{ 
 		if (i < index) NewArray[i] = arr[i];
@@ -107,9 +130,11 @@ void Insert(int*& arr, int& size, int value,int index)
 	arr = NewArray;
 	size++;
 }
-void Erase(int*& arr, int& size, int index)
+
+template<typename T>
+void Erase(T*& arr, int& size, int index)
 {
-	int* NewArray = new int[size];
+	T* NewArray = new T[size];
 	for (int i = 0; i < size; i++)
 	{
 		if (i < index) NewArray[i] = arr[i];
